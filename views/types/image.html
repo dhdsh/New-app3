@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <form action="/users/image" enctype="multipart/form-data" method="post">
+        <input type="hidden" name="id" value="<%=id%>"> 头像：
+        <input type="file" name="photo">
+        <br>
+        <br>
+        <input type="submit" value="提交">
+        <br>
+        <br>
+    </form>
+</body>
+
+</html>

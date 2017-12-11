@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="/assets/ico/favicon.ico">
+    <title>我的文章</title>
+    <!-- CSS Plugins -->
+    <link href="/assets/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="/assets/plugins/animate/animate.css" rel="stylesheet">
+    <!-- CSS Global -->
+    <link href="/assets/css/styles.css" rel="stylesheet">
+    <link rel="stylesheet" href="/plugins/editor.md/css/editormd.preview.min.css">
+</head>
+
+<body>
+    <!-- NAVIGATION
+    ================================================== -->
+    <div class="navbar navbar-default" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <!-- Navbar toggle -->
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <!-- Navbar brand -->
+                <a class="navbar-brand" href="index.html">
+                    <i class="fa fa-paperclip"></i> Paperclip
+                </a>
+            </div>
+            <!-- / .navbar-header -->
+            <div class="collapse navbar-collapse">
+                </span>
+            </div>
+        </div>
+    </div>
+    <!--/.navbar-collapse -->
+    </div>
+    </div>
+    <!-- / .navigation -->
+    <!-- TOPIC HEADER
+    ================================================== -->
+    <div class="topic">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-4">
+                    <h3>Blog</h3>
+                </div>
+                <div class="col-sm-8">
+                    <ol class="breadcrumb pull-right hidden-xs">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li class="active">Blog Post</li>
+                    </ol>
+                </div>
+            </div>
+            <!-- / .row -->
+        </div>
+        <!-- / .container -->
+    </div>
+    <!-- / .topic -->
+    <!-- MAIN CONTENT
+    ================================================== -->
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-3">
+                <!-- Search -->
+                <form>
+                    <div class="well">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="input-group">
+                                    <input type="text" class="form-control" placeholder="Search here...">
+                                    <span class="input-group-btn">
+                      <button class="btn btn-primary" type="button">
+                        <i class="fa fa-search"></i>
+                      </button>
+                    </span>
+                                </div>
+                                <!-- / .input-group -->
+                            </div>
+                        </div>
+                        <!-- /.row -->
+                    </div>
+                </form>
+                <!-- Categories -->
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        Categories
+                    </div>
+                    <div class="panel-body">
+                        <ul>
+                           <% result.forEach(function(value,key){%> 
+                            <li><a href="?tid=<%=value.id%>"><%=value.title%></a></li>
+                           <% }) %>                          
+                        </ul>
+                    </div>
+                </div>
+                <!-- Tags -->
+                <div class="section">
+                    <p class="blog-tags">
+                        <a href="#">Bootstrap</a>
+                        <a href="#">lorem</a>
+                        <a href="#">ipsum</a>
+                        <a href="#">dolor</a>
+                        <a href="#">sit</a>
+                        <a href="#">amet</a>
+                        <a href="#">consectetur</a>
+                        <a href="#">elit</a>
+                        <a href="#">Nulla</a>
+                        <a href="#">dapibus</a>
+                        <a href="#">lorem</a>
+                    </p>
+                </div>
+            </div>
+            <div class="col-sm-9">
+                <!-- Blog Post -->
+                <div class="blog-post">
+                    <!-- Avatar -->
+                    <div class="blog-post__avatar">
+                        <img src="/assets/img/photo-2.jpg" class="img-responsive" alt="...">
+                    </div>
+                    <!-- Blog post -->
+                    <div class="blog-post__body">
+                        <!-- Blog post title -->
+                        <h3 class="blog-post__title">
+                <a href="#">
+                   <%=date.title%>
+                </a>
+              </h3>
+                        <!-- Blog post info -->
+                        <div class="blog-post__info">丁辉
+                            <%=moment.unix(date.addtime).format('YYYY年MM月DD HH:mm:ss')%>
+                        </div>
+                        <!-- Blog post content -->
+                        <div class="blog-post__content">
+                            <div id="editormd">
+                                <textarea name="content"><%=date.content%></textarea>
+                          </div>
+                        </div>
+                        <!-- Blog post tags -->
+                        <p class="blog-tags">
+                            <a><%=date.title%></a>
+                            <a class="zan" deta-id="<%=date.id%>">点赞<%=date.zannum%></a>
+                        </p>
+                    </div>
+                </div>
+                <!-- / .blog-post -->
+                <!-- Pagination -->
+                <ul class="pager pull-right">
+                    <li><a href="#">Previous</a></li>
+                    <li><a href="#">Next</a></li>
+                </ul>
+                <div class="clearfix"></div>
+                <!-- Comments section -->
+                <div class="comments">
+                    <div class="comments__heading">4 comments</div>
+                    <!-- New comment form -->
+                    <form name="comments__new">
+                        <div class="form-group">
+                            <textarea class="form-control" rows="1" placeholder="Write your comment here"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary" disabled="disabled">Send</button>
+                    </form>
+                    <!-- List of comments -->
+                    <div class="comments__list">
+                        <!-- Comment item -->
+                        <div class="comments__item">
+                            <div class="comments-item__avatar">
+                                <img src="/assets/img/photo-2.jpg" class="img-responsive" alt="..." />
+                            </div>
+                            <div class="comments-item__body">
+                                <div class="comments-item__info">
+                                    <div class="comments-item-info__author">Jane Doe</div>
+                                    <div class="comments-item-info__divider">
+                                        <i class="fa fa-circle"></i>
+                                    </div>
+                                    <div class="comment-item-info__timestamp">3 hours ago</div>
+                                </div>
+                                <div class="comments-item__content">
+                                    Nunc sagittis in est malesuada finibus. Aliquam non metus nec nisi auctor vulputate eget at purus. Morbi mattis nisl elit, id egestas magna viverra ut. Nunc condimentum porttitor tortor a tempus.
+                                </div>
+                                <div class="comments-item__actions">
+                                    <a href="#" class="comment-item-actions__reply">
+                      Reply
+                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- / .comments__item -->
+                        <!-- Comment item -->
+                        <div class="comments__item">
+                            <div class="comments-item__avatar">
+                                <img src="/assets/img/photo-3.jpg" class="img-responsive" alt="..." />
+                            </div>
+                            <div class="comments-item__body">
+                                <div class="comments-item__info">
+                                    <div class="comments-item-info__author">John Doe</div>
+                                    <div class="comments-item-info__divider">
+                                        <i class="fa fa-circle"></i>
+                                    </div>
+                                    <div class="comment-item-info__timestamp">5 hours ago</div>
+                                </div>
+                                <div class="comments-item__content">
+                                    In quis tellus tristique, ullamcorper mauris quis, mollis urna. Maecenas cursus auctor vestibulum. Suspendisse eu mi convallis, porttitor leo sit amet, fermentum nulla. Fusce rhoncus ex maximus, condimentum elit tincidunt, venenatis augue.
+                                </div>
+                                <div class="comments-item__actions">
+                                    <a href="#" class="comment-item-actions__reply">
+                      Reply
+                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- / .comments__item -->
+                        <!-- Comment item -->
+                        <div class="comments__item">
+                            <div class="comments-item__avatar">
+                                <img src="/assets/img/photo-4.jpg" class="img-responsive" alt="..." />
+                            </div>
+                            <div class="comments-item__body">
+                                <div class="comments-item__info">
+                                    <div class="comments-item-info__author">Jane Doe</div>
+                                    <div class="comments-item-info__divider">
+                                        <i class="fa fa-circle"></i>
+                                    </div>
+                                    <div class="comment-item-info__timestamp">1 day ago</div>
+                                </div>
+                                <div class="comments-item__content">
+                                    Pellentesque leo urna, ornare non pharetra eu, suscipit sit amet magna. Vivamus vel quam vitae massa posuere pellentesque accumsan eu justo. Cras non porttitor leo
+                                </div>
+                                <div class="comments-item__actions">
+                                    <a href="#" class="comment-item-actions__reply">
+                      Reply
+                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- / .comments__item -->
+                        <!-- Comment item -->
+                        <div class="comments__item">
+                            <div class="comments-item__avatar">
+                                <img src="/assets/img/photo-6.jpg" class="img-responsive" alt="..." />
+                            </div>
+                            <div class="comments-item__body">
+                                <div class="comments-item__info">
+                                    <div class="comments-item-info__author">John Doe</div>
+                                    <div class="comments-item-info__divider">
+                                        <i class="fa fa-circle"></i>
+                                    </div>
+                                    <div class="comment-item-info__timestamp">2 days ago</div>
+                                </div>
+                                <div class="comments-item__content">
+                                    Sed id vestibulum mauris. Nunc venenatis mauris sit amet accumsan tincidunt. Praesent cursus nulla sed accumsan pulvinar. Donec ipsum justo, pretium at neque eget, imperdiet tristique quam.
+                                </div>
+                                <div class="comments-item__actions">
+                                    <a href="#" class="comment-item-actions__reply">
+                      Reply
+                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- / .comments__item -->
+                    </div>
+                    <!-- / .comments__list -->
+                </div>
+                <!-- / .comments -->
+            </div>
+        </div>
+        <!-- / .row -->
+    </div>
+    <!-- / .container -->
+    <!-- FOOTER
+    ================================================== -->
+    <footer>
+        <!-- Footer Top -->
+        <div class="footer_top">
+            <div class="container">
+                <div class="row">
+                    <!-- Contact Us -->
+                    <div class="col-xs-12 col-sm-3">
+                        <div class="footer__item">
+                            <h5 class="footer-item__title"><span>Contact Us</span></h5>
+                            <div class="footer-item__content">
+                                <p>
+                                    Do not hesitate to contact us if you have any questions or feature requests:
+                                </p>
+                                <p>
+                                    Lorem ipsum dolor sit amet,
+                                    <br> Consectetur adipiscing elit
+                                </p>
+                                <p>
+                                    Phone: +0 000 000 00 00
+                                    <br> Fax: +0 000 000 00 00
+                                </p>
+                                <p>
+                                    Email: <a href="#">support@example.com</a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Recent Tweets -->
+                    <div class="col-xs-12 col-sm-3">
+                        <div class="footer__item">
+                            <h5 class="footer-item__title"><span>Recent Tweets</span></h5>
+                            <div class="footer-item__content">
+                                <div class="footer__tweet">
+                                    <div class="footer-tweet__icon">
+                                        <i class="fa fa-twitter"></i>
+                                    </div>
+                                    <div class="footer-tweet__content">
+                                        <p>
+                                            <a href="#">@wrapbootstrap</a> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc nisi lorem, elementum sed.
+                                        </p>
+                                        <a href="#">1 hour ago</a>
+                                    </div>
+                                </div>
+                                <div class="footer__tweet">
+                                    <div class="footer-tweet__icon">
+                                        <i class="fa fa-twitter"></i>
+                                    </div>
+                                    <div class="footer-tweet__content">
+                                        <p>
+                                            <a href="#">@wrapbootstrap</a> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc nisi lorem, elementum sed.
+                                        </p>
+                                        <a href="#">1 day ago</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Recent Posts -->
+                    <div class="col-xs-12 col-sm-3">
+                        <div class="footer__item">
+                            <h5 class="footer-item__title"><span>Recent Posts</span></h5>
+                            <div class="footer-item__content">
+                                <div class="footer__post">
+                                    <div class="footer-post__img">
+                                        <img src="/assets/img/photo-2.jpg" alt="...">
+                                    </div>
+                                    <div class="footer-post__content">
+                                        <p><a href="#">Lorem ipsum dolor sit amet</a></p>
+                                        <time datetime="2015-01-01">2015/01/01</time>
+                                    </div>
+                                </div>
+                                <div class="footer__post">
+                                    <div class="footer-post__img">
+                                        <img src="/assets/img/photo-3.jpg" alt="...">
+                                    </div>
+                                    <div class="footer-post__content">
+                                        <p><a href="#">Lorem ipsum dolor sit amet</a></p>
+                                        <time datetime="2015-01-01">2015/01/01</time>
+                                    </div>
+                                </div>
+                                <div class="footer__post">
+                                    <div class="footer-post__img">
+                                        <img src="/assets/img/photo-6.jpg" alt="...">
+                                    </div>
+                                    <div class="footer-post__content">
+                                        <p><a href="#">Lorem ipsum dolor sit amet</a></p>
+                                        <time datetime="2015-01-01">2015/01/01</time>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Quick Links -->
+                    <div class="col-xs-12 col-sm-3">
+                        <div class="footer__item">
+                            <h5 class="footer-item__title"><span>Quick Links</span></h5>
+                            <div class="footer-item__content">
+                                <ul class="footer__links">
+                                    <li><a href="#">Donec commodo turpis eget orci</a></li>
+                                    <li><a href="#">Lorem ipsum dolor sit amet</a></li>
+                                    <li><a href="#">Aenean rhoncus vel nisi sed</a></li>
+                                    <li><a href="#">Aenean accumsan volutpat libero</a></li>
+                                    <li><a href="#">Vestibulum lacinia erat massa</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- / .row -->
+            </div>
+            <!-- / .container -->
+        </div>
+        <!-- / .footer_top -->
+        <!-- Footer Bottom -->
+        <div class="footer_bottom">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-6">
+                        <div class="footer__copyright">
+                            Copyright 2015 <a href="http://simpleqode.com/">Simpleqode.com</a>. All Rights Reserved.
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-6">
+                        <ul class="footer__social">
+                            <li class="twitter"><a href="#"><i class="fa fa-twitter"></i></a></li>
+                            <li class="facebook"><a href="#"><i class="fa fa-facebook"></i></a></li>
+                            <li class="linkedin"><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                            <li class="google-plus"><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                            <li class="pinterest"><a href="#"><i class="fa fa-pinterest"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- / .row -->
+            </div>
+            <!-- / .container -->
+        </div>
+        <!-- / .footer_bottom -->
+    </footer>
+    <!-- JavaScript
+    ================================================== -->
+    <!-- JS Global -->
+    <script src="/assets/jquery/dist/jquery.min.js"></script>
+    <script src="/assets/bootstrap/js/bootstrap.min.js"></script>
+    <!-- JS Plugins -->
+    <script src="/assets/plugins/scrolltopcontrol/scrolltopcontrol.js"></script>
+    <!-- JS Custom -->
+    <script src="/assets/js/custom.js"></script>
+    <script src="/plugins/editor.md/lib/marked.min.js"></script>
+    <script src="/plugins/editor.md/lib/prettify.min.js"></script>
+    <script src="/plugins/editor.md/lib/raphael.min.js"></script>
+    <script src="/plugins/editor.md/lib/underscore.min.js"></script>
+    <script src="/plugins/editor.md/lib/sequence-diagram.min.js"></script>
+    <script src="/plugins/editor.md/lib/flowchart.min.js"></script>
+    <script src="/plugins/editor.md/lib/jquery.flowchart.min.js"></script>
+    <script src="/plugins/editor.md/editormd.js"></script>
+    <script>
+    $(function() {
+        var testEditormdView2 = editormd.markdownToHTML("editormd", {
+            htmlDecode: "style,script,iframe", // you can filter tags decode
+            emoji: true,
+            taskList: true,
+            tex: true, // 默认不解析
+            flowChart: true, // 默认不解析
+            sequenceDiagram: true, // 默认不解析
+        });
+        $('.zan').click(function(e){
+             e.preventDefault();
+             var that=$(this);
+             $.post('/zan',{id:$(this).attr('deta-id')},function(data){
+                   if(data.success===1){
+                      $('.zan').text('点赞'+data.desc.zannum);
+                   }else{
+                       alert('失败');
+                   }
+             })
+        })
+
+    });
+    </script>
+</body>
+
+</html>
